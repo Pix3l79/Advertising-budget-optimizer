@@ -1,0 +1,5 @@
+Region Name,Importance Weight
+Metro,0.5
+Suburban,0.2
+Rural,0.2
+National,0.1

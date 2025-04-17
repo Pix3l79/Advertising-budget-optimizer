@@ -1,0 +1,7 @@
+# Channel Name, Cost per Unit ($), Reach Scaling Factor, Saturation Rate (lower = slower saturation), Minimum Units to Buy
+Channel,Cost_per_Unit,Reach_Factor,Saturation_Rate,Min_Units
+_budget_,0,0,0,8000
+TV,5,100,0.01,5
+Online,8,150,0.02,3
+Radio,3,70,0.015,4
+Newspaper,6,90,0.012,10

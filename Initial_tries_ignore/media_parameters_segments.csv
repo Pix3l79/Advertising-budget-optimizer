@@ -1,0 +1,15 @@
+# Channel Name, Cost per Unit ($), Total Reach Factor, %12-20, %21-35, %36-above, Saturation Rate, Min Units
+# Source for Age Group Reach Data: https://www.statista.com/
+Channel,Cost_per_Unit,Total_Reach,Percent_12_20,Percent_21_35,Percent_36_above,Saturation_Rate,Min_Units
+_budget_,0,0,0,0,0,0,8000
+TV,5,200,20,35,45,0.01,5
+Radio,3,150,15,35,50,0.015,4
+Newspaper,6,100,10,30,60,0.012,10
+Billboards,7,180,25,40,35,0.013,6
+Social Media Ads,6,300,50,40,10,0.025,2
+Podcast Ads,4,120,20,50,30,0.018,3
+Cinema Ads,9,220,35,45,20,0.016,5
+Public Transit Ads,5,160,20,35,45,0.014,4
+Event Sponsorships,12,350,30,40,30,0.03,1
+Direct Mail,4,90,10,30,60,0.01,7
+Influencer Marketing,10,280,55,35,10,0.028,2

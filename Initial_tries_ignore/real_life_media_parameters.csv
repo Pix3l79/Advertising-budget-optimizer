@@ -1,0 +1,28 @@
+# Channel Name, Cost per Unit ($), Total Reach Factor, %12-20, %21-35, %36-above, Saturation Rate, Min Units, Metro Share (%), Suburban Share (%), Rural Share (%), National Share (%)
+# Source for Age Group Reach Data: https://www.statista.com/
+# Sources for Cost per Unit Data:
+# - TV: https://adage.com/article/media/tv-commercial-prices-primetime-advertising-costs-2024-2025/2589571/
+# - Radio: https://www.adresultsmedia.com/news-insights/how-much-do-radio-ads-cost/
+# - Newspaper: https://www.webfx.com/digital-advertising/pricing/cost-to-advertise-in-national-newspapers/
+# - Billboard: https://www.shopify.com/blog/billboard-advertising
+# - Social Media Ads: https://www.webfx.com/social-media/pricing/how-much-does-social-media-advertising-cost/
+# - Podcast Ads: https://www.adresultsmedia.com/news-insights/how-much-do-podcast-ads-cost/
+# - Cinema Ads: https://dashtwo.com/outdoor-advertising/cinema-advertising/
+# - Public Transit Ads: https://www.foxvisits.com/how-much-does-bus-advertising-cost/
+# - Event Sponsorships: https://sponsorshipcollective.com/much-charge-event-sponsors/
+# - Direct Mail: https://resimpli.com/blog/direct-mail-statistics/
+# - Influencer Marketing: https://www.shopify.com/blog/influencer-pricing
+# Source for Saturation Rates: https://www.statista.com/statistics/1363147/advertising-saturation-medium-usa/
+Channel,Cost_per_Unit,Total_Reach,Percent_12_20,Percent_21_35,Percent_36_above,Saturation_Rate,Min_Units,Metro_Share,Suburban_Share,Rural_Share,National_Share
+_budget_,0,0,0,0,0,0,8000000,0,0,0,0
+TV,118115,200,20,35,45,0.03,5,35,25,15,25
+Radio,750,150,15,35,50,0.02,4,20,25,40,15
+Newspaper,100000,100,10,30,60,0.01,10,25,30,30,15
+Billboards,925,180,25,40,35,0.015,6,40,35,15,10
+Social Media Ads,2000,300,50,40,10,0.04,2,30,30,20,20
+Podcast Ads,2500,120,20,50,30,0.015,3,35,30,15,20
+Cinema Ads,2500,220,35,45,20,0.012,5,50,30,10,10
+Public Transit Ads,3000,160,20,35,45,0.02,4,45,35,10,10
+Event Sponsorships,10000,350,30,40,30,0.01,1,25,35,30,10
+Direct Mail,3,90,10,30,60,0.005,7,20,40,30,10
+Influencer Marketing,1300,280,55,35,10,0.025,2,30,30,20,20
