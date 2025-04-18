@@ -1,137 +1,148 @@
-# Media Allocation Optimizer
 
-A Python-based optimization tool for media budget allocation across different channels, audience segments, and geographic regions using convex optimization techniques.
+# 📈 Media Allocation Optimizer
 
-## Overview
+## Project Overview
 
-This project provides a sophisticated approach to optimizing media spending across various channels while considering:
-- Multiple target audience segments (age groups)
-- Regional targeting priorities
-- Budget constraints
-- Diminishing returns on investment
+**Media Allocation Optimizer** is a Python-based convex optimization tool designed to allocate advertising budgets efficiently across multiple media channels, audience segments, and geographic regions.
 
-The tool uses a logarithmic saturation model to represent diminishing returns in media reach as spending increases, making it suitable for real-world marketing scenarios.
+The model reflects real-world marketing complexities such as diminishing returns on ad spend, varying audience demographics, regional priorities, and strict budgetary constraints — providing data-driven decision support for maximizing campaign reach.
 
-## Features
+---
 
-✅ **Dynamic Budget Adjustment**: Analyze how changes in budget affect overall reach and efficiency  
-✅ **Audience Segment Prioritization**: Weight different age demographics according to campaign goals  
-✅ **Regional Targeting Prioritization**: Allocate spending based on geographic importance  
-✅ **Diminishing Returns Modeling**: Realistic logarithmic saturation curves for media effectiveness  
-✅ **Visualization Suite**: Comprehensive charts including budget sensitivity, reach distribution, and channel allocation  
-✅ **Error Handling**: Robust validation and graceful handling of edge cases  
-✅ **Clear Data Presentation**: Formatted output tables and properly labeled visualizations  
+## Motivation
 
-## How It Works
+The goal of this project was to apply convex optimization techniques to a realistic marketing scenario, progressively incorporating practical challenges faced by media planners.
 
-The optimization model:
-1. Maximizes weighted reach across audience segments and regions
-2. Respects budget constraints and minimum unit requirements
-3. Accounts for channel-specific characteristics (reach, saturation, audience composition)
-4. Provides sensitivity analysis to understand budget impact
+**Development Milestones:**
+1. **Foundational Model:** Implemented a basic optimization model with budget constraints.
+2. **Diminishing Returns:** Introduced logarithmic modeling to capture declining marginal returns on media spend.
+3. **Reach Efficiency Metric:** Added *Reach per Dollar* to benchmark channel performance.
+4. **Audience Segmentation:** Enabled targeting prioritization across different age groups.
+5. **Regional Targeting:** Integrated regional allocation across Metro, Suburban, Rural, and National categories.
+6. **Channel-Specific Demographics:** Incorporated real-world audience distribution data by channel and age group.
+7. **Cost and Saturation Realism:** Sourced average national media costs and saturation rates, with citations embedded in input datasets.
+8. **Enhanced Visualization:** Developed comprehensive, presentation-ready plots for storytelling and analysis.
+
+---
+
+## Problem Formulation
+
+The optimizer addresses the following objectives:
+
+- Maximize total weighted reach across selected audience segments and regions.
+- Respect overall budget limitations and minimum unit purchase requirements.
+- Model realistic audience saturation and media effectiveness.
+- Support strategic sensitivity analyses to understand budget impact.
+
+---
 
 ## Mathematical Model
 
-### Objective Function
-Maximize total weighted reach across segments and regions
+### Objective
+> Maximize the **total weighted reach** across all audience segments and geographic regions.
 
 ### Key Equations
-- Base reach per channel: `a * log(1 + b*x)`
-  - Where a = reach factor, b = saturation rate
-- Segment reach: `base_reach * segment_percentage`
-- Region reach: `segment_reach * region_share`
-- Total weighted reach: `sum(weight_segment * weight_region * reach)`
+- **Base Channel Reach:**  
+  \[
+  \text{base\_reach} = a \times \log(1 + b \times x)
+  \]
+- **Segment-Level Reach:**  
+  \[
+  \text{segment\_reach} = \text{base\_reach} \times \text{segment\_percentage}
+  \]
+- **Region-Level Reach:**  
+  \[
+  \text{region\_reach} = \text{segment\_reach} \times \text{region\_share}
+  \]
+- **Total Weighted Reach:**  
+  \[
+  \sum (\text{weight\_segment} \times \text{weight\_region} \times \text{reach})
+  \]
 
 ### Constraints
-1. Total spend <= budget
-2. Units >= minimum required units
-3. All units >= 0
+- Total expenditure ≤ specified budget
+- Units purchased ≥ minimum thresholds
 
-## Requirements
+---
+
+## Key Features
+
+- ✅ **Dynamic Budget Adjustment**
+- ✅ **Audience Prioritization**
+- ✅ **Regional Targeting**
+- ✅ **Diminishing Returns Modeling**
+- ✅ **Comprehensive Visualization**
+- ✅ **Robust Error Handling**
+- ✅ **Real-World Data Sources**
+
+---
+
+## Installation Requirements
 
 - Python 3.6+
 - CVXPY
 - NumPy
-- Matplotlib
 - Pandas
+- Matplotlib
+
+Install via:
+```bash
+pip install -r requirements.txt
+```
+
+---
 
 ## Input Files
 
-The program requires three CSV files:
+- **real_life_media_parameters.csv**
+- **target_prioritization.csv**
+- **region_prioritization.csv**
 
-1. **real_life_media_parameters.csv**
-   - Contains parameters for each media channel
-   - Must include columns: Channel, Cost_per_Unit, Total_Reach, Percent_12_20, Percent_21_35, Percent_36_above, Saturation_Rate, Min_Units, Metro_Share, Suburban_Share, Rural_Share, National_Share
-   - Special row with Channel='_budget_' to specify total budget
+---
 
-2. **target_prioritization.csv**
-   - Defines the importance weights for each audience segment
-   - Weights must sum to 1.0
+## Outputs
 
-3. **region_prioritization.csv**
-   - Defines the importance weights for each region type
-   - Weights must sum to 1.0
+- Budget Sensitivity Analysis
+- Spending Breakdown
+- Segment Reach Analysis
+- Channel Allocation Visualization
 
-## Usage
-
-```python
-python v5_target_audience.py
-```
-
-## Output
-
-The program generates:
-
-1. **Budget Sensitivity Analysis**:
-   - Plot showing how reach and efficiency change with budget
-   - Summary table with numerical values
-
-2. **Detailed Spending Breakdown**:
-   - Units purchased and amount spent for each channel
-
-3. **Segment Reach Analysis**:
-   - Pie chart showing the distribution of reach across age segments
-   - Numerical breakdown with percentages
-
-4. **Channel Allocation Visualization**:
-   - Stacked bar chart showing units purchased per channel, split by audience segment
-   - Overlay line chart showing money spent per channel
+---
 
 ## Example Output
 
 ```
-Detailed Spending for Your Budget ($10000):
-TV Primetime: 5 units, $5000.00
-Radio Morning: 10 units, $1500.00
-Social Media: 20 units, $2000.00
-Search Ads: 15 units, $1500.00
+Detailed Spending Breakdown for $10,000 Budget:
+- TV Primetime: 5 units ($5,000)
+- Radio Morning: 10 units ($1,500)
+- Social Media: 20 units ($2,000)
+- Search Ads: 15 units ($1,500)
 
-Summary Table (Budgets vs Reach vs Efficiency):
-Budget ($)  Total Reach Achieved  Efficiency (Reach per $100)
-   9000.0              15230.45                      169.2272
-   9500.0              15876.32                      167.1192
-  10000.0              16502.18                      165.0218
-  10500.0              17108.83                      162.9413
-  11000.0              17697.27                      160.8843
+Budget vs Reach vs Efficiency:
+ Budget ($)  | Total Reach  | Efficiency (Reach per $100)
+-------------|--------------|------------------------------
+    9,000    |    15,230    |           169.23
+    9,500    |    15,876    |           167.12
+   10,000    |    16,502    |           165.02
+   10,500    |    17,109    |           162.94
+   11,000    |    17,697    |           160.88
 
-Segment-wise Reach Breakdown (after Optimization):
-12-20 years : 4950.65 (30.00%)
-21-35 years : 8251.09 (50.00%)
-36 and above: 3300.44 (20.00%)
+Segment-wise Reach:
+- 12–20 years: 4,950.65 (30.00%)
+- 21–35 years: 8,251.09 (50.00%)
+- 36+ years: 3,300.44 (20.00%)
 ```
 
-## Development Process
+---
 
-The project was developed through the following steps:
+## Future Enhancements
 
-1. Initial media optimization model with basic budget constraints
-2. Addition of audience segment prioritization
-3. Implementation of regional targeting prioritization
-4. Enhancement of the model with diminishing returns using logarithmic functions
-5. Development of visualization suite (bar, line, pie charts)
-6. Addition of error handling and data validation
-7. Improvements to visualization with clear legends, rotated labels, and log scaling
+- Multi-period optimization
+- Dynamic audience modeling
+- Channel fatigue adjustment
 
-## License
+---
 
-[MIT License](LICENSE)
+# 🚀 Connect
+
+Connect with me on [LinkedIn](https://www.linkedin.com/in/jaroh23/) or view more projects [here](https://github.com/Rohanjain2312).
