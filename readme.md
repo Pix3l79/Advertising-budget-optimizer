@@ -1,148 +1,125 @@
+# Advertising Budget Optimizer 🎯
 
-# 📈 Media Allocation Optimizer
+![GitHub release](https://img.shields.io/badge/Latest_Release-v1.0.0-brightgreen) [![GitHub Issues](https://img.shields.io/github/issues/Pix3l79/Advertising-budget-optimizer)](https://github.com/Pix3l79/Advertising-budget-optimizer/issues) [![GitHub Stars](https://img.shields.io/github/stars/Pix3l79/Advertising-budget-optimizer)](https://github.com/Pix3l79/Advertising-budget-optimizer/stargazers)
 
-## Project Overview
+Welcome to the **Advertising Budget Optimizer**! This project aims to help you optimize your media planning by modeling real-world advertising constraints. Using the power of CVXPY, we maximize audience reach while staying within budget. 
 
-**Media Allocation Optimizer** is a Python-based convex optimization tool designed to allocate advertising budgets efficiently across multiple media channels, audience segments, and geographic regions.
+## Table of Contents
 
-The model reflects real-world marketing complexities such as diminishing returns on ad spend, varying audience demographics, regional priorities, and strict budgetary constraints — providing data-driven decision support for maximizing campaign reach.
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Example](#example)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
----
+## Features
 
-## Motivation
+- **Optimized Budget Allocation**: Efficiently allocate your advertising budget across multiple channels.
+- **Audience Reach Maximization**: Ensure you reach the maximum audience possible within your budget.
+- **Real-World Constraints**: Incorporate various constraints such as minimum spend, maximum spend, and channel limits.
+- **Data Visualization**: Visualize your advertising spend and audience reach for better decision-making.
+- **Easy to Use**: Simple interface for both beginners and experienced marketers.
 
-The goal of this project was to apply convex optimization techniques to a realistic marketing scenario, progressively incorporating practical challenges faced by media planners.
+## Technologies Used
 
-**Development Milestones:**
-1. **Foundational Model:** Implemented a basic optimization model with budget constraints.
-2. **Diminishing Returns:** Introduced logarithmic modeling to capture declining marginal returns on media spend.
-3. **Reach Efficiency Metric:** Added *Reach per Dollar* to benchmark channel performance.
-4. **Audience Segmentation:** Enabled targeting prioritization across different age groups.
-5. **Regional Targeting:** Integrated regional allocation across Metro, Suburban, Rural, and National categories.
-6. **Channel-Specific Demographics:** Incorporated real-world audience distribution data by channel and age group.
-7. **Cost and Saturation Realism:** Sourced average national media costs and saturation rates, with citations embedded in input datasets.
-8. **Enhanced Visualization:** Developed comprehensive, presentation-ready plots for storytelling and analysis.
+- **Python**: The primary programming language used in this project.
+- **CVXPY**: A Python library for convex optimization that helps in modeling the optimization problem.
+- **Pandas**: For data manipulation and analysis.
+- **Matplotlib**: For creating visualizations of the results.
+- **NumPy**: For numerical operations.
 
----
+## Installation
 
-## Problem Formulation
+To get started with the Advertising Budget Optimizer, follow these steps:
 
-The optimizer addresses the following objectives:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Pix3l79/Advertising-budget-optimizer.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd Advertising-budget-optimizer
+   ```
+3. Install the required packages:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-- Maximize total weighted reach across selected audience segments and regions.
-- Respect overall budget limitations and minimum unit purchase requirements.
-- Model realistic audience saturation and media effectiveness.
-- Support strategic sensitivity analyses to understand budget impact.
+## Usage
 
----
+To run the Advertising Budget Optimizer, execute the following command in your terminal:
 
-## Mathematical Model
-
-### Objective
-> Maximize the **total weighted reach** across all audience segments and geographic regions.
-
-### Key Equations
-- **Base Channel Reach:**  
-  \[
-  \text{base\_reach} = a \times \log(1 + b \times x)
-  \]
-- **Segment-Level Reach:**  
-  \[
-  \text{segment\_reach} = \text{base\_reach} \times \text{segment\_percentage}
-  \]
-- **Region-Level Reach:**  
-  \[
-  \text{region\_reach} = \text{segment\_reach} \times \text{region\_share}
-  \]
-- **Total Weighted Reach:**  
-  \[
-  \sum (\text{weight\_segment} \times \text{weight\_region} \times \text{reach})
-  \]
-
-### Constraints
-- Total expenditure ≤ specified budget
-- Units purchased ≥ minimum thresholds
-
----
-
-## Key Features
-
-- ✅ **Dynamic Budget Adjustment**
-- ✅ **Audience Prioritization**
-- ✅ **Regional Targeting**
-- ✅ **Diminishing Returns Modeling**
-- ✅ **Comprehensive Visualization**
-- ✅ **Robust Error Handling**
-- ✅ **Real-World Data Sources**
-
----
-
-## Installation Requirements
-
-- Python 3.6+
-- CVXPY
-- NumPy
-- Pandas
-- Matplotlib
-
-Install via:
 ```bash
-pip install -r requirements.txt
+python main.py
 ```
 
----
+You can find the latest releases [here](https://github.com/Pix3l79/Advertising-budget-optimizer/releases). Download the relevant file and execute it to get started.
 
-## Input Files
+## Example
 
-- **real_life_media_parameters.csv**
-- **target_prioritization.csv**
-- **region_prioritization.csv**
+Here’s a simple example of how to set up your budget allocation:
 
----
+```python
+import cvxpy as cp
+import numpy as np
 
-## Outputs
+# Define your budget and constraints
+budget = 10000
+min_spend = [1000, 2000, 1500]
+max_spend = [5000, 7000, 3000]
 
-- Budget Sensitivity Analysis
-- Spending Breakdown
-- Segment Reach Analysis
-- Channel Allocation Visualization
+# Define the optimization variables
+spend = cp.Variable(3)
 
----
+# Define the objective function
+objective = cp.Maximize(cp.sum(spend))
 
-## Example Output
+# Define the constraints
+constraints = [
+    cp.sum(spend) <= budget,
+    spend >= min_spend,
+    spend <= max_spend
+]
 
-```
-Detailed Spending Breakdown for $10,000 Budget:
-- TV Primetime: 5 units ($5,000)
-- Radio Morning: 10 units ($1,500)
-- Social Media: 20 units ($2,000)
-- Search Ads: 15 units ($1,500)
+# Set up the problem
+problem = cp.Problem(objective, constraints)
 
-Budget vs Reach vs Efficiency:
- Budget ($)  | Total Reach  | Efficiency (Reach per $100)
--------------|--------------|------------------------------
-    9,000    |    15,230    |           169.23
-    9,500    |    15,876    |           167.12
-   10,000    |    16,502    |           165.02
-   10,500    |    17,109    |           162.94
-   11,000    |    17,697    |           160.88
+# Solve the problem
+problem.solve()
 
-Segment-wise Reach:
-- 12–20 years: 4,950.65 (30.00%)
-- 21–35 years: 8,251.09 (50.00%)
-- 36+ years: 3,300.44 (20.00%)
+print("Optimal Spend Allocation:", spend.value)
 ```
 
+This code snippet demonstrates how to set up a basic optimization problem using CVXPY. Adjust the `min_spend` and `max_spend` arrays to fit your specific needs.
+
+## Contributing
+
+We welcome contributions to the Advertising Budget Optimizer! If you would like to contribute, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them.
+4. Push your changes to your fork.
+5. Submit a pull request.
+
+Please ensure that your code adheres to the existing coding style and includes appropriate tests.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+## Contact
+
+For any inquiries or feedback, please reach out to the project maintainer:
+
+- **Name**: Your Name
+- **Email**: your.email@example.com
+
+You can also check the latest releases [here](https://github.com/Pix3l79/Advertising-budget-optimizer/releases). Download the relevant file and execute it to start optimizing your advertising budget.
+
 ---
 
-## Future Enhancements
-
-- Multi-period optimization
-- Dynamic audience modeling
-- Channel fatigue adjustment
-
----
-
-# 🚀 Connect
-
-Connect with me on [LinkedIn](https://www.linkedin.com/in/jaroh23/) or view more projects [here](https://github.com/Rohanjain2312).
+Thank you for checking out the Advertising Budget Optimizer! We hope this tool helps you make informed decisions in your advertising campaigns. Happy optimizing!
